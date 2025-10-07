@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block body %}
+<h4>Edit User: {{ username }}</h4>
+<form method="post">
+  <div class="mb-3">
+    <label>Password (kosongkan jika tidak ubah)</label>
+    <input type="password" class="form-control" name="password" placeholder="new password">
+  </div>
+  <div class="mb-3">
+    <label>Max Devices</label>
+    <input type="number" class="form-control" name="max_devices" value="{{ user.max_devices }}">
+  </div>
+  <div class="mb-3">
+    <label>Expires (YYYY-MM-DD)</label>
+    <input type="text" class="form-control" name="expires" value="{{ user.expires }}">
+  </div>
+  <button class="btn btn-primary">Update</button>
+  <a href="/admin/users" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}

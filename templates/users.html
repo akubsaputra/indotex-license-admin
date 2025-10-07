@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block body %}
+<h4>Registered Users</h4>
+<a href="/admin/create" class="btn btn-success mb-3">+ Create User</a>
+<table class="table table-bordered">
+  <thead><tr>
+    <th>Username</th><th>Expires</th><th>Max Devices</th><th>Devices</th><th>Actions</th>
+  </tr></thead>
+  <tbody>
+  {% for username, u in users.items() %}
+  <tr>
+    <td>{{username}}</td>
+    <td>{{u.expires or '-'}}</td>
+    <td>{{u.max_devices}}</td>
+    <td>{{u.devices|length}}</td>
+    <td>
+      <a href="/admin/edit/{{username}}" class="btn btn-sm btn-primary">Edit</a>
+      <form method="post" action="/admin/delete/{{username}}" style="display:inline">
+        <button class="btn btn-sm btn-danger" onclick="return confirm('Hapus user ini?')">Delete</button>
+      </form>
+      <form method="post" action="/admin/unbind/{{username}}" style="display:inline">
+        <button class="btn btn-sm btn-warning">Unbind Devices</button>
+      </form>
+    </td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
