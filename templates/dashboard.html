@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Admin Dashboard</title>
+    <style>
+        body { font-family: Arial; background-color: #f4f4f4; padding: 20px; }
+        table { border-collapse: collapse; width: 100%; background: white; }
+        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+        th { background-color: #007bff; color: white; }
+        h1 { color: #007bff; }
+        a.logout { float: right; color: #dc3545; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <h1>Admin Dashboard <a href="/logout" class="logout">Logout</a></h1>
+    <table>
+        <tr>
+            <th>#</th>
+            <th>Username</th>
+            <th>License Key</th>
+        </tr>
+        {% for user in users %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ user['username'] }}</td>
+            <td>{{ user['license'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
