@@ -1,12 +1,2 @@
-# === Core Framework ===
-flask
-gunicorn
-
-# === Utilities ===
-python-dotenv
-itsdangerous
-jinja2
-werkzeug
-
-# === Optional (jaga-jaga kalau kamu pakai fitur tambahan) ===
-click
+flask==3.0.3
+python-dotenv==1.0.1
