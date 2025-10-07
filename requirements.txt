@@ -1,3 +1,12 @@
+# === Core Framework ===
 flask
 gunicorn
+
+# === Utilities ===
 python-dotenv
+itsdangerous
+jinja2
+werkzeug
+
+# === Optional (jaga-jaga kalau kamu pakai fitur tambahan) ===
+click
